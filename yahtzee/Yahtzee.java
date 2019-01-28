@@ -103,7 +103,7 @@ public class Yahtzee {
 
 			System.out.println();
 			System.out.print("Enter 'y' to play again ");
-			playAgain = keyboard.next().charAt(0);
+			playAgain = keyboard.nextLine().charAt(0);
 		}
 
 	}
