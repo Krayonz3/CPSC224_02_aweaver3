@@ -9,12 +9,13 @@ import java.util.Scanner;
 import java.lang.Math;
 
 public class Yahtzee {
-	static final int DICE_IN_PLAY = 5;
+	public static final int DICE_IN_PLAY = 5;
 
-	Scanner keyboard = new Scanner(System.in);
+	public static Scanner keyboard = new Scanner(System.in);
+
+	private static int hand[];
 
 	public static void main(String[] args) {
-		static int hand[];
 		hand = new int[DICE_IN_PLAY];
 		char playAgain = 'y';
 
@@ -24,7 +25,7 @@ public class Yahtzee {
 			while (turn < 4 && keep != "yyyyy") {
 				// Rolls unheld dice here
 				for (int dieNumber = 0; dieNumber < DICE_IN_PLAY; dieNumber++) {
-					if (keep[dieNumber] != 'y')
+					if (keep.charAt(dieNumber) != 'y')
 						hand[dieNumber] = rollDie();
 				}
 
@@ -82,12 +83,12 @@ public class Yahtzee {
 			else
 				System.out.println("Score 0 on the Full House line");
 
-			if (MaxStraightFound(hand) >= 4)
+			if (maxStraightFound(hand) >= 4)
 				System.out.println("Score 30 on the Small Straight line");
 			else
 				System.out.println("Score 0 on the Small Straight line");
 
-			if (MaxStraightFound(hand) >= 5)
+			if (maxStraightFound(hand) >= 5)
 				System.out.println("Score 40 on the Large Straight line");
 			else
 				System.out.println("Score 0 on the Large Straight line");
@@ -102,7 +103,7 @@ public class Yahtzee {
 
 			System.out.println();
 			System.out.print("Enter 'y' to play again ");
-			playAgain = keyboard.next();
+			playAgain = keyboard.next().charAt(0);
 		}
 
 	}
